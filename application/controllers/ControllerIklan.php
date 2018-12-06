@@ -94,13 +94,29 @@ class ControllerIklan extends CI_Controller {
 
   public function tampilIklan($statusPencarian, $id_iklan){
     $data['iklan'] = $this->iklan->daftarIklan($id_iklan, $statusPencarian);
-
+    $data['komentar'] = $this->tampilKomentar($id_iklan);
 		$data['member'] = $this->member->getData(FALSE, $data['iklan']['id_pembuatIklan']);
     $this->load->view('header');
     $this->load->view('iklan/detilIklan', $data);
     $this->load->view('footer');
   }
 
+  public function buatKomentar(){
+		$this->form_validation->set_rules('komentar', 'Komentar', 'required');
+		$this->form_validation->set_message('required', '<div class="alert alert-danger">%s tidak boleh kosong !</div>');
+
+		if($this->form_validation->run() === FALSE){
+			redirect($_SERVER['HTTP_REFERER']);
+		}else{
+			$this->komentar->createKomentar($this->input->post());
+	    redirect($_SERVER['HTTP_REFERER']);
+		}
+  }
+
+  public function tampilKomentar($id_iklan){
+    $data['komentar'] = $this->komentar->getKomentar($id_iklan);
+    return $data['komentar'];
+  }
 
 	public function hapusIklan($id_iklan){
 		$this->iklan->deleteIklan($id_iklan);

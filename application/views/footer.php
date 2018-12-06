@@ -10,8 +10,8 @@
       <div class="col-md-2 col-sm-6 paddingtop-bottom">
         <h6 class="heading7">KATEGORI</h6>
         <ul class="footer-ul">
-          <li><a href="http://localhost/temanles/iklan/Guru">Daftar Bimbingan Mata Pelajaran</a></li>
-          <li><a href="http://localhost/temanles/iklan/Murid"></a></li>
+          <li><a href="http://localhost/temanles/iklan/Guru">Iklan Pencarian Guru</a></li>
+          <li><a href="http://localhost/temanles/iklan/Murid">Iklan Pencarian Murid</a></li>
         </ul>
       </div>
     </div>
