@@ -1,13 +1,15 @@
 -- phpMyAdmin SQL Dump
--- version 4.6.5.2
+-- version 4.7.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 30, 2017 at 04:15 PM
--- Server version: 10.1.21-MariaDB
--- PHP Version: 7.1.1
+-- Generation Time: 05 Des 2018 pada 04.09
+-- Versi Server: 10.1.22-MariaDB
+-- PHP Version: 7.1.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -23,7 +25,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `iklan`
+-- Struktur dari tabel `iklan`
 --
 
 CREATE TABLE `iklan` (
@@ -37,17 +39,20 @@ CREATE TABLE `iklan` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `iklan`
+-- Dumping data untuk tabel `iklan`
 --
 
 INSERT INTO `iklan` (`id_iklan`, `id_pembuatIklan`, `judul`, `slug`, `statusPencarian`, `jenjang`, `deskripsi`) VALUES
-(17, 9, 'Cari guru programing', 'cari-guru-programing', 'Guru', 'Mahasiswa', 'Buth guru pemrograman Dasar'),
-(18, 10, 'Cari Murid Matematika', 'cari-murid-matematika', 'Murid', 'SMP', 'Saya bisa mengajarkan matematika untuk jenjang SMP');
+(20, 16, 'Matematika Biologi', 'matematika-biologi', 'Guru', 'SD', 'Minimal memiliki kemampuan bahasa \r\nJAVA\r\nPHP'),
+(22, 18, 'Jasa Les Private Tematik', 'jasa-les-private-tematik', 'Murid', 'SD', 'Les Private tematik kelas 3 - 5 Sekolah Dasar (SD) '),
+(23, 18, 'Jasa Les Private Matematika ', 'jasa-les-private-matematika', 'Murid', 'SMA', 'Les Kelas \"PINTAR\" membuka les matematika Sekolah Menengah Atas\r\nKursi 20 siswa\r\nTersedia 5 kursi \r\nHappy join ! :)\r\n'),
+(24, 19, 'Tematik', 'tematik', 'Guru', 'SD', 'Guru SD tematik\r\n'),
+(25, 19, 'Bhs.Inggris', 'bhsinggris', 'Guru', 'SD', 'Ingris');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `komentar`
+-- Struktur dari tabel `komentar`
 --
 
 CREATE TABLE `komentar` (
@@ -59,17 +64,17 @@ CREATE TABLE `komentar` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `komentar`
+-- Dumping data untuk tabel `komentar`
 --
 
 INSERT INTO `komentar` (`id_pengirim`, `id_pembuatIklan`, `id_iklan`, `komentar`, `waktu`) VALUES
-(10, 9, 17, 'Semester berapa?', '2017-11-30 09:44:04'),
-(14, 9, 17, 'Saya bisa java dan php', '2017-11-30 19:07:51');
+(19, 18, 23, 'Saya ingin mendaftar ', '2018-12-04 20:51:02'),
+(20, 18, 23, 'Wahh asik ', '2018-12-04 20:52:17');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `member`
+-- Struktur dari tabel `member`
 --
 
 CREATE TABLE `member` (
@@ -84,18 +89,19 @@ CREATE TABLE `member` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT;
 
 --
--- Dumping data for table `member`
+-- Dumping data untuk tabel `member`
 --
 
 INSERT INTO `member` (`id`, `nama`, `email`, `password`, `alamat`, `noTelp`, `deskripsi`, `foto`) VALUES
-(9, 'alimah', 'alimah@yahoo.com', '92d927c1949fc05f4ea35f1cac533ccc', 'JL gamprit no2', '08579191919', 'Kuliah UB Filkom Informatika Semester 5', 'foto/1478386182730.jpg'),
-(10, 'chan', 'chan@yahoo.com', '26c322652770620e64ac90682eb6504c', 'Jl kerto aji', '085710509584', 'Mahasiswa UB Filkom', 'foto/20151219_155846.jpg'),
-(14, 'heryan', 'muhammadheryan@ymail.com', 'ad29c3e86b860e66c982e374698699fa', 'Jl Kerto Aji No 3 Malang', '085604065366', 'Mahasiswa Teknik Informatika semester 5', 'foto/IMG_20161105_115151_BURST3.jpg');
+(16, 'Dhany', 'dhany@gmail.com', '81dc9bdb52d04dc20036dbd8313ed055', 'Merjosari Malang', '0815544332211', 'Mahasiswa \r\nSaya ingin belajar Programming', 'foto/Image_0157f082.jpg'),
+(18, 'Danu', 'danu@gmail.com', '81dc9bdb52d04dc20036dbd8313ed055', 'Tulungagung', '081223322333', 'Dosen Komputer\r\nUniversitas Brawijaya', 'foto/danu1.PNG'),
+(19, 'Sabrina', 'sabrina@gmail.com', '81dc9bdb52d04dc20036dbd8313ed055', 'Wagir', '085681872737', 'Pelajar SMA N 3 Malang\r\n', 'foto/sabrina.PNG'),
+(20, 'Alvin', 'alvin@gmail.com', '81dc9bdb52d04dc20036dbd8313ed055', 'Mertojoyo Malang', '089652442412', 'Pelajar SMP N 1 Jakarta', 'foto/alvin.PNG');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `pesan`
+-- Struktur dari tabel `pesan`
 --
 
 CREATE TABLE `pesan` (
@@ -107,28 +113,13 @@ CREATE TABLE `pesan` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `pesan`
+-- Dumping data untuk tabel `pesan`
 --
 
 INSERT INTO `pesan` (`id_pengirim`, `id_penerima`, `pesan`, `status`, `waktu`) VALUES
-(10, 9, 'hai alimah', 'read', '2017-11-29 04:10:54'),
-(9, 10, 'Hai juga', 'read', '2017-11-29 04:24:35'),
-(14, 10, 'Bro, Apa Kabar?', 'read', '2017-11-29 04:25:27'),
-(10, 9, 'saya bisa jadi guru programing', 'read', '2017-11-29 04:56:10'),
-(10, 9, 'Kamu emang mau belajar bahasa apa?', 'read', '2017-11-29 05:25:52'),
-(14, 9, 'saya bisa', 'read', '2017-11-29 06:03:21'),
-(10, 9, 'Halooo', 'read', '2017-11-29 07:32:10'),
-(9, 10, 'iyaaa ia nanti di hubungi lagi', 'read', '2017-11-29 07:37:03'),
-(9, 10, 'saya mau belajar CI?', 'read', '2017-11-30 03:54:44'),
-(9, 10, 'bisa kah?', 'read', '2017-11-30 03:54:52'),
-(10, 9, 'Ooh bisa bisa kok', 'read', '2017-11-30 04:03:57'),
-(9, 10, 'oke saya posisi di malang', 'read', '2017-11-30 04:17:59'),
-(9, 14, 'beneran bisa?', 'read', '2017-11-30 04:44:38'),
-(14, 9, 'iyaak bisa PHP dan java', 'read', '2017-11-30 04:45:10'),
-(10, 9, 'saya juga di malang', 'read', '2017-11-30 05:05:24'),
-(10, 9, 'di kerto aji', 'read', '2017-11-30 05:05:31'),
-(9, 14, 'posisi dimana?', 'read', '2017-11-30 05:06:14'),
-(14, 10, 'kok di read doang', 'read', '2017-11-30 08:19:19');
+(18, 16, 'Saya bersedia menjadi guru private programming saudara\r\nSilahkan hubungi nomor saya.\r\nTerimakasih :)\r\n', 'read', '2018-12-04 20:42:23'),
+(16, 18, 'Baik terimakasih', 'read', '2018-12-04 20:45:00'),
+(18, 19, 'Saya berminat mendaftar', 'unread', '2018-12-05 10:07:00');
 
 --
 -- Indexes for dumped tables
@@ -171,24 +162,24 @@ ALTER TABLE `pesan`
 -- AUTO_INCREMENT for table `iklan`
 --
 ALTER TABLE `iklan`
-  MODIFY `id_iklan` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id_iklan` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 --
 -- AUTO_INCREMENT for table `member`
 --
 ALTER TABLE `member`
-  MODIFY `id` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 --
--- Constraints for dumped tables
+-- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
 --
 
 --
--- Constraints for table `iklan`
+-- Ketidakleluasaan untuk tabel `iklan`
 --
 ALTER TABLE `iklan`
   ADD CONSTRAINT `iklan_ibfk_1` FOREIGN KEY (`id_pembuatIklan`) REFERENCES `member` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `komentar`
+-- Ketidakleluasaan untuk tabel `komentar`
 --
 ALTER TABLE `komentar`
   ADD CONSTRAINT `komentar_ibfk_1` FOREIGN KEY (`id_pengirim`) REFERENCES `member` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
@@ -196,11 +187,12 @@ ALTER TABLE `komentar`
   ADD CONSTRAINT `komentar_ibfk_3` FOREIGN KEY (`id_pembuatIklan`) REFERENCES `member` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `pesan`
+-- Ketidakleluasaan untuk tabel `pesan`
 --
 ALTER TABLE `pesan`
   ADD CONSTRAINT `pesan_ibfk_1` FOREIGN KEY (`id_pengirim`) REFERENCES `member` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `pesan_ibfk_2` FOREIGN KEY (`id_penerima`) REFERENCES `member` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
