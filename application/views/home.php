@@ -19,8 +19,8 @@
         <a class="navbar-brand" href="http://localhost/temanles/">TemanLes.com</a>
       </div>
       <ul class="nav navbar-nav">
-        <li><a href="http://localhost/temanles/iklan/Guru">Daftar Bimbingan Mata Pelajaran</a></li>
-        <li><a href="http://localhost/temanles/iklan/Murid"></a></li>
+        <li><a href="http://localhost/temanles/iklan/Guru">Cari Guru Les</a></li>
+        <li><a href="http://localhost/temanles/iklan/Murid">Cari Murid Les</a></li>
 
       </ul>
       <ul class="nav navbar-nav navbar-right">
